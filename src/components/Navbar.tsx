@@ -8,6 +8,8 @@ interface navlinks {
 	url: string
 }
 export default function Navbar() {
+	
+	const [mobileNav, setMobileNav] = useState(false)
 	const links: Array<navlinks> = [
 		{
 			title: 'home',
@@ -35,8 +37,6 @@ export default function Navbar() {
 		},
 	]
 
-	const [mobileNav, setMobileNav] = useState(false)
-
 	useEffect(() => {
 		let lastScrollTop = 0
 		let navbar = document.getElementById('nav')!
@@ -51,13 +51,13 @@ export default function Navbar() {
 		})
 	}, [])
 
-	useEffect(() => {
-		let navbar = document.getElementById('nav')!
-		navbar.style.top = '-100px'
-		setTimeout(() => {
-			navbar.style.top = '0'
-		}, 3000)
-	}, [])
+	// useEffect(() => {
+	// 	let navbar = document.getElementById('nav')!
+	// 	navbar.style.top = '-100px'
+	// 	setTimeout(() => {
+	// 		navbar.style.top = '0'
+	// 	}, 3000)
+	// }, [])
 
 	const HorizontalNavList = ({ title, url }: navlinks) => {
 		return (
